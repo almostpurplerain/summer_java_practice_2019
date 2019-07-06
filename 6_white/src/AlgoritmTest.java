@@ -1,8 +1,8 @@
 public class AlgoritmTest {
     AlgoritmTest() {}
-    public void test1() {
-        String str = "she he shed um es";
-        String text = "tshedateumaesu";
+    public void test1(String str, String text) {
+        //String str = "she he shed um es";
+        //String text = "tshedateumaesu";
         Bohr testBohr = new Bohr();
         testBohr.stringToBohr(str);
         AhoCor test1 = new AhoCor();
