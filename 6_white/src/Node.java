@@ -3,7 +3,7 @@ import java.util.LinkedHashMap;
 import java.util.HashMap;
 import java.util.Map;
 
-public class Node {
+public class Node { //json
     private LinkedHashMap<Character, Node> go = new LinkedHashMap<>();
     private HashMap<Character, Node> nextLevelNode = new HashMap<>();  //Создание с нуля
     public int indexOfShape;  //Вход, если последний символ

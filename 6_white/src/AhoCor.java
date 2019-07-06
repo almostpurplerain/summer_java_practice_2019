@@ -6,7 +6,16 @@ import java.util.HashMap;
  */
 
 public class AhoCor {
-    public HashMap <Integer, Integer> answer;
+    public class resultPair {
+        int position;
+        int template;
+
+        public resultPair(int pos, int temp) {
+            position = pos;
+            template = temp;
+        }
+    }
+    public HashMap <Integer, resultPair> answer;
     public AhoCor(){
         answer = new HashMap<>();
     }
@@ -14,13 +23,15 @@ public class AhoCor {
     public void processText(String text, Bohr trie) {
         Node cur = trie.head;
         Node dsl;
+        int resultCounter = 0;
         for (int i = 0; i < text.length(); i++){
             char c = text.charAt(i);
             cur = getLink(cur, trie, c); //поиск перехода
             dsl = cur;
             do {
                 if (dsl.getIndex() != -1) {
-                    answer.put(i, dsl.getIndex());
+                    answer.put(resultCounter, new resultPair( i + 1, dsl.getIndex()));
+                    resultCounter++;
                 }
                 dsl = getDictSuffLink(dsl, trie); //поиск сжатой суффиксной ссылки
             } while (dsl != trie.head);
